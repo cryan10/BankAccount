@@ -10,9 +10,9 @@ namespace BankAccount
     {
         string userName;
         string password;
-        double savings;
-        double checking;
-        double reserve;
+        double savings=10000;
+        double checking=5000;
+        double reserve=300;
         double withdraw;
         double deposit;
 

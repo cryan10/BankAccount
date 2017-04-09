@@ -30,6 +30,12 @@ namespace BankAccount
             //Creation of switch to turn program on and off
             bool program = true;
 
+            //Creation of objects
+            Account account = new Account(userName, password, savings, checking, reserve, withdraw, deposit);
+            SavingsAccount savingsAccount = new SavingsAccount();
+            CheckingAccount checkingAccount = new CheckingAccount();
+            ReserveAccount reserveAccount = new ReserveAccount();
+
             //Begin running actual program
             while (program == true)
             {
@@ -41,12 +47,6 @@ namespace BankAccount
                 Console.WriteLine("5.) Exit");
 
                 int userInput = int.Parse(Console.ReadLine());
-
-                //Creation of objects
-                Account account = new Account(userName, password, savings, checking, reserve, withdraw, deposit);
-                SavingsAccount savingsAccount = new SavingsAccount();
-                CheckingAccount checkingAccount = new CheckingAccount();
-                ReserveAccount reserveAccount = new ReserveAccount();
 
                 //User's choice from menu prompts corresponding methods
                 switch (userInput)
@@ -102,18 +102,18 @@ namespace BankAccount
                         int withdrawChoice = int.Parse(Console.ReadLine());
                         if (withdrawChoice == 1)
                         {   //checking account withdraw
-                            checkingAccount.MakeWithdraw(withdraw, checking);
+                            checking = checkingAccount.MakeWithdraw(withdraw, checking);
                         }
                         if (withdrawChoice == 2)
                         {
                             //savings account withdraw
-                            savingsAccount.AddInterest(savings);
-                            savingsAccount.MakeWithdraw(withdraw, savings);
+                            savings = savingsAccount.AddInterest(savings);
+                            savings = savingsAccount.MakeWithdraw(withdraw, savings);
                         }
                         if (withdrawChoice == 3)
                         {
                             //reserve account withdraw
-                            reserveAccount.MakeWithdraw(withdraw, reserve);
+                            reserve = reserveAccount.MakeWithdraw(withdraw, reserve);
                         }
                         Console.WriteLine("What else would you like to do? Please choose from the following options: ");
                         break;
@@ -126,18 +126,18 @@ namespace BankAccount
                         int depositChoice = int.Parse(Console.ReadLine());
                         if (depositChoice == 1)
                         {   //checking account withdraw
-                            checkingAccount.MakeDeposit(deposit, checking);
+                            checking = checkingAccount.MakeDeposit(deposit, checking);
                         }
                         if (depositChoice == 2)
                         {
                             //savings account witdraw
-                            savingsAccount.AddInterest(savings);
-                            savingsAccount.MakeDeposit(deposit, savings);
+                            savings = savingsAccount.AddInterest(savings);
+                            savings = savingsAccount.MakeDeposit(deposit, savings);
                         }
                         if (depositChoice == 3)
                         {
                             //reserve account withdraw
-                            reserveAccount.MakeDeposit(deposit, reserve);
+                            reserve = reserveAccount.MakeDeposit(deposit, reserve);
                         }
                         Console.WriteLine("What else would you like to do? Please choose from the following options: ");
                         break;

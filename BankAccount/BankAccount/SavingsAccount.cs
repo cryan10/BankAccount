@@ -39,6 +39,7 @@ namespace BankAccount
             DateTime dt2 = DateTime.Now;
             if (dt.Date == dt2.Date) {
                 savings = savings + (savings * interest);
+                return savings;
             }
 
                 return savings;

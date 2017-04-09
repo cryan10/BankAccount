@@ -20,19 +20,19 @@ namespace BankAccount
             if (checking > 0)
             {
                 Console.WriteLine("You just withdrew ${0}. Your current balance is ${1}", withdraw, checking);
-
+                //if low funds in checking, user receives overdraft warning
                 if (checking <= 100 && checking > 0)
                 {
                     Console.WriteLine(overdraftWarning);
                 }
+                return checking;
             }
             else
             {
                 checking = checking - overdraft;
                 Console.WriteLine("You have overdrawn your account. You've just been fined $15. Your balance is now ${0}", checking);
+                return checking;
             }
-
-            return checking;
         }
 
         public double MakeDeposit(double deposit, double checking)

@@ -39,7 +39,6 @@ namespace BankAccount
             {
                 reserve = reserve + (reserve * interest);
             }
-
             return reserve;
         }
 
